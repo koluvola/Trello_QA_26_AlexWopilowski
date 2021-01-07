@@ -52,7 +52,7 @@ public class HelperBase {
 
     public boolean isUserLogIn() {
 
-        return isElementPresent(By.xpath("//a[contains(., 'logOut')]"));
+        return isElementPresent(By.cssSelector("[class='js-board-editing-target board-header-btn-text']"));
     }
 
     public void type(String str, By locator) {

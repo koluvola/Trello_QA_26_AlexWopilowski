@@ -15,6 +15,12 @@ public class SessionHelper extends HelperBase {
 
     }
 
+    public void createNewBoard(String boardName) {
+        clickButton(By.cssSelector("div[class='all-boards'] div:nth-child(2) ul:nth-child(1) li:nth-child(1) div:nth-child(1)"));
+        type(boardName, By.cssSelector("[class='_23NUW98LaZfBpQ']"));
+        clickButton(By.cssSelector("[class='uj9Ovoj4USRUQz voB8NatlbuEme5 _21upOlzpUQJcdT']"));
+    }
+
     public void fillLoginForm(User user) {
         type(user.getEmail(), By.cssSelector("#user"));
         delay(2000);
@@ -26,7 +32,10 @@ public class SessionHelper extends HelperBase {
     }
 
     public void initLogin() {
-        clickByCssSelector("a[class='btn btn-sm btn-link text-white']");
+        if (isElementPresent(By.cssSelector("a[class='btn btn-sm btn-link text-white']"))) {
+            clickByCssSelector("a[class='btn btn-sm btn-link text-white']");
+        }
+
 
     }
 
