@@ -2,19 +2,22 @@ package com.trello.qa26.test;
 
 
 import com.trello.qa26.fw.ApplicationManager;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.openqa.selenium.remote.BrowserType;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
 public class TestBase {
 
-    public ApplicationManager appl = new ApplicationManager();
+    protected static ApplicationManager appl = new ApplicationManager(System.getProperty("browser",
+            BrowserType.FIREFOX));
+    //protected static ApplicationManager appl = new ApplicationManager();
 
-    @BeforeMethod
+    @BeforeSuite
     public void setUp() {
         appl.init();
     }
 
-    @AfterMethod
+    @AfterSuite
     public void tearDown() {
         appl.getUser().delay(20000);
         appl.stopTesting();

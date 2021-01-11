@@ -21,6 +21,36 @@ public class SessionHelper extends HelperBase {
         clickButton(By.cssSelector("[class='uj9Ovoj4USRUQz voB8NatlbuEme5 _21upOlzpUQJcdT']"));
     }
 
+    public void destroyBoard() {
+        //delay(5000);
+        if(isElementPresent(By.cssSelector("[class='board-tile-details is-badged']"))){
+            clickByCssSelector("div[class='board-tile-details is-badged']");
+            delay(5000);
+            clickByCssSelector("[class='board-menu-navigation-item-link js-open-more']");
+            delay(5000);
+            clickByCssSelector("[class='board-menu-navigation-item-link js-close-board']");
+            delay(5000);
+            clickByCssSelector("[class='js-confirm full nch-button nch-button--danger']");
+            delay(5000);
+            clickByCssSelector("[class='quiet js-delete']");
+            delay(5000);
+            clickByCssSelector("[class='js-confirm full nch-button nch-button--danger']");
+            delay(5000);
+            clickByCssSelector("[class='MEu8ZECLGMLeab']");
+            delay(5000);
+            clickByCssSelector("[class='sc-bdVaJa kBFJig']");
+            delay(5000);
+        }
+
+
+        else
+            System.out.println("No boards");
+
+
+
+
+    }
+
     public void fillLoginForm(User user) {
         type(user.getEmail(), By.cssSelector("#user"));
         delay(2000);

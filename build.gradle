@@ -17,3 +17,15 @@ dependencies {
 test {
     useTestNG()
 }
+
+task PositiveTest(type: Test){
+    useTestNG{
+        suites 'src/test/resources/testNG.xml'
+    }
+    if(project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+}
+
+
+

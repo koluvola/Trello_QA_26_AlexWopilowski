@@ -5,32 +5,21 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class CreateBoardTest extends  TestBase{
-    int boardNumber= (int) (System.currentTimeMillis()/100000);
+public class DestroyBoardTest extends TestBase {
+
     String email = "alexwopilowski@hotmail.com";
     String password = "Calligula70";
-    String boardName="New Board"+boardNumber;
 
-    @Test
-    public void testCreationBoardOnTrello(){
+
+    @Test(enabled = true)
+    public void destroyBoard() {
         if (!appl.getUser().isElementPresent(By.cssSelector("[class='_24AWINHReYjNBf aYXvcYtXemTcSj']"))){
             appl.getUser().initLogin();
             appl.getUser().fillLoginForm(new User().withEmail(email).withPassword(password));
             appl.getUser().confirmLogin();
-            appl.getUser().createNewBoard(boardName);
         }
-        else{
-            appl.getUser().createNewBoard(boardName);
-            Assert.assertTrue(appl.getUser().isUserLogIn());
-            appl.getUser().delay(30000);
-        }
-
-
-
-
+        appl.getUser().destroyBoard();
 
 
     }
-
-
 }

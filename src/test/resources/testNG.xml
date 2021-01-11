@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="PositiveTest" verbose="1" >
+
+    <test name="PositiveTest">
+        <classes>
+            <class name="com.trello.qa26.test.LoginTest"/>
+            <class name="com.trello.qa26.test.CreateBoardTest"/>
+            <class name="com.trello.qa26.test.DestroyBoardTest"/>
+        </classes>
+    </test>
+</suite>
