@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.BrowserType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.TimeUnit;
 
@@ -12,6 +14,7 @@ public class ApplicationManager {
     public String browser;
     public SessionHelper user;
     public WebDriver wd;
+    Logger logger = LoggerFactory.getLogger(ApplicationManager.class);
 
     public ApplicationManager(String browser) {
 
@@ -24,6 +27,7 @@ public class ApplicationManager {
     }
 
     public void init() {
+
         if (browser.equals(BrowserType.CHROME)) {
             wd = new ChromeDriver();
         } else if (browser.equals(BrowserType.FIREFOX)) {
@@ -33,6 +37,7 @@ public class ApplicationManager {
         wd = new FirefoxDriver();
         //wd = new ChromeDriver();
         wd.navigate().to("https://trello.com/");
+        logger.info("Opened site: " +wd.getCurrentUrl());
         //open window of site to full size
         wd.manage().window().maximize();
         wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

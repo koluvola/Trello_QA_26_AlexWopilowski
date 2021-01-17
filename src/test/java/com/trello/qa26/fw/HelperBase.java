@@ -1,14 +1,20 @@
 package com.trello.qa26.fw;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import com.google.common.io.Files;
+import org.openqa.selenium.*;
+
+import java.io.File;
+import java.io.IOException;
 
 public class HelperBase {
     WebDriver wd;
 
     public HelperBase(WebDriver wd) {
         this.wd = wd;
+    }
+
+    public void click(String xPathSelector) {
+        wd.findElement(By.xpath(xPathSelector)).click();
     }
 
     public void clickButton(By locator) {
@@ -23,10 +29,6 @@ public class HelperBase {
     public void clickByCssSelector(String cssSelector) {
         wd.findElement(By.cssSelector(cssSelector)).click();
 
-    }
-
-    public void click(String xPathSelector) {
-        wd.findElement(By.xpath(xPathSelector)).click();
     }
 
     public void clickCheckBox(By locator) {
@@ -53,6 +55,17 @@ public class HelperBase {
     public boolean isUserLogIn() {
 
         return isElementPresent(By.cssSelector("[class='js-board-editing-target board-header-btn-text']"));
+    }
+
+    public void takeScreenShot(String pahttoFile) {
+        File screenshotAs = ((TakesScreenshot) wd).getScreenshotAs(OutputType.FILE);
+        File screenShot = new File(pahttoFile + System.currentTimeMillis() + ".png");
+        try {
+            Files.copy(screenshotAs,screenShot);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void type(String str, By locator) {
