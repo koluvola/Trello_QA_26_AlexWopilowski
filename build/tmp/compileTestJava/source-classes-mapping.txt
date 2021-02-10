@@ -1,0 +1,21 @@
+com/trello/qa26/fw/HelperBase.java
+ com.trello.qa26.fw.HelperBase
+com/trello/qa26/test/RepeatLoginTest.java
+ com.trello.qa26.test.RepeatLoginTest
+com/trello/qa26/test/DestroyBoardTest.java
+ com.trello.qa26.test.DestroyBoardTest
+com/trello/qa26/test/LoginTest.java
+ com.trello.qa26.test.LoginTest
+com/trello/qa26/test/TestBase.java
+ com.trello.qa26.test.TestBase
+com/trello/qa26/fw/SessionHelper.java
+ com.trello.qa26.fw.SessionHelper
+com/trello/qa26/test/CreateBoardTest.java
+ com.trello.qa26.test.CreateBoardTest
+com/trello/qa26/test/ChangeAvatar.java
+ com.trello.qa26.test.ChangeAvatar
+com/trello/qa26/fw/ApplicationManager.java
+ com.trello.qa26.fw.ApplicationManager
+ com.trello.qa26.fw.ApplicationManager$MyListener
+com/trello/qa26/model/User.java
+ com.trello.qa26.model.User
