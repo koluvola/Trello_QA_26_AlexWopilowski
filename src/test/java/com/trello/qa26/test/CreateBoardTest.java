@@ -10,12 +10,13 @@ public class CreateBoardTest extends  TestBase{
     String email = "alexwopilowski@hotmail.com";
     String password = "Calligula70";
     String boardName="New Board"+boardNumber;
+    int time=10;
 
-    @Test
+    @Test(enabled = true)
     public void testCreationBoardOnTrello(){
         if (!appl.getUser().isElementPresent(By.cssSelector("[class='_24AWINHReYjNBf aYXvcYtXemTcSj']"))){
             appl.getUser().initLogin();
-            appl.getUser().fillLoginForm(new User().withEmail(email).withPassword(password));
+            appl.getUser().fillLoginForm(new User().withEmail(email).withPassword(password), time);
             appl.getUser().confirmLogin();
             appl.getUser().createNewBoard(boardName);
         }

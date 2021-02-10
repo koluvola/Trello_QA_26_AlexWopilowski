@@ -21,11 +21,13 @@ public class TestBase {
 
     @BeforeSuite
     public void setUp() {
+
         appl.init();
     }
 
     @BeforeMethod
     public void startLogger(Method method){
+
         logger.info("Start test: "+ method.getName());
     }
 
@@ -40,6 +42,8 @@ public class TestBase {
         appl.stopTesting();
 
     }
+
+
 
 
 }
